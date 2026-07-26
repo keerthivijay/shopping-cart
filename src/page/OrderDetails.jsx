@@ -1,7 +1,9 @@
 import { useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
 
-function OrderDetails({ orderList }) {
+function OrderDetails() {
     const { id } = useParams();
+    const orderList = useSelector((state) => state.order.orderList);
     const orderDetails = orderList.find((order) => order.id === parseInt(id));
 
     return (
@@ -16,7 +18,7 @@ function OrderDetails({ orderList }) {
                         <span className="col-quantity">Quantity</span>
                         <span className="col-total">Total</span>
                     </div>
-                    {orderDetails.cartProducts.map((product) => (
+                    {orderDetails.products.map((product) => (
                         <div key={product.id} className="order-product">
                             <span className="col-prod-name">{product.title}</span>
                             <span className="col-pro-price">${product.price.toFixed(2)}</span>
@@ -29,7 +31,7 @@ function OrderDetails({ orderList }) {
             </div>
             <div className="order-summary">
                 <h2>Order Summary</h2>
-                <div>Items: {orderDetails.cartProducts.length}</div>
+                <div>Items: {orderDetails.products.length}</div>
                 <div>Shipping: $5.99</div>
                 <div>Tax: $1</div>
                 {/* <p>Tax: ${orderDetails.tax.toFixed(2)}</p> */}

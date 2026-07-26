@@ -1,21 +1,23 @@
 import { useState, useMemo } from 'react';
+import { Link, useNavigate } from "react-router";
+import { useSelector, useDispatch } from 'react-redux';
 import Modal from '../components/Modal';
 import Header from '../components/Header';
 import Menu from '../components/Menu';
 import Footer from '../components/Footer';
-import { Link, useNavigate } from "react-router";
+import { removeCartProduct, clearCart } from '../store/ProductSlice';
 
-function CartDetails({ cartProducts, removeFromCart, clearCart }) {
-
-    const totalPrice = useMemo(() => cartProducts.reduce((total, product) => total + product.price, 0), [cartProducts]);
+function CartDetails() {
 
     const [open, setOpen] = useState(false);
 
     const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const cartProducts = useSelector((state) => state.product.cartProducts) || [];
+    const totalPrice = useMemo(() => cartProducts.reduce((total, product) => total + product.price, 0), [cartProducts]);
 
     function handleCheckout() {
-        // Implement checkout logic here
-        console.log("Proceeding to checkout with products:", cartProducts);
+
         if(cartProducts.length === 0) {
             setOpen(true);
         } else {
@@ -30,7 +32,7 @@ function CartDetails({ cartProducts, removeFromCart, clearCart }) {
                 <h1>Shopping Cart</h1>
                 <div className="cart-buttons">
                     <button className='btn btn-checkout' onClick={handleCheckout}>Checkout</button>
-                    <button className='btn btn-clear' onClick={clearCart}>Clear</button>
+                    <button className='btn btn-clear' onClick={() => dispatch(clearCart())}>Clear</button>
                 </div>
             </div>
 
@@ -43,7 +45,7 @@ function CartDetails({ cartProducts, removeFromCart, clearCart }) {
                             <img src="./src/assets/hero.png" alt={product.title} />
                             <p>{product.title}</p>
                             <p>${product.price.toFixed(2)}</p>
-                            <button className="btn btn-danger" onClick={() => removeFromCart(product.id)}>
+                            <button className="btn btn-danger" onClick={() => dispatch(removeCartProduct(product.id))}>
                             Remove
                             </button>
                         </div>)

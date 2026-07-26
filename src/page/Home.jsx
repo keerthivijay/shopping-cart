@@ -1,7 +1,8 @@
 import { Suspense } from "react";
 import ProductsWidget from "../components/ProductsWidget";
 
-function Home({ addToCart }) {
+function Home() {
+
   return (
     <>
         <div className="home">
@@ -9,7 +10,7 @@ function Home({ addToCart }) {
             <p>Browse our products and add them to your cart.</p>
         </div>
         <Suspense fallback={<div>Loading products...</div>}>
-            <ProductsWidget addToCart={addToCart} />    
+            <ProductsWidget />
         </Suspense>
     </>
     

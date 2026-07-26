@@ -1,4 +1,5 @@
 import { Link } from "react-router";
+import { useSelector } from "react-redux";
 
 import DataTable from 'datatables.net-react';
 import DT from 'datatables.net-bs5';
@@ -7,7 +8,9 @@ import 'datatables.net-bs5/css/dataTables.bootstrap5.min.css';
 DataTable.use(DT); // Initialize Bootstrap 5 styling
 
 
-function OrderList({ orders }) {
+function OrderList() {
+
+    const orders = useSelector((state) => state.order.orderList);
     console.log("OrderList received orders:", orders);
     return (
         <>

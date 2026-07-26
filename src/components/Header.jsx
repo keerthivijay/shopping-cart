@@ -1,14 +1,19 @@
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import SearchBox from './SearchBox';
+import DropdownMenu from './DropdownMenu';
 
-function Header({ products, cartCount }) {
+const Header = () => {
+    
+    const cartCount = useSelector((state) => state.product.cartCount);
+    
     return (
         <div className="header">
             <Link to="/">
                 <h1>ShopIng</h1>
             </Link>
             <div className="activity-bar">
-                <SearchBox products={products} />
+                <SearchBox />
                 <Link to="/cart">
                     <span className="cart-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24px" height="24px">
@@ -19,11 +24,7 @@ function Header({ products, cartCount }) {
                 </Link>
                 <span className="user-icon">
                     <img src="../src/assets/user.png" alt="User Icon" className="user-icon" />
-                    <ul className="user-menu">
-                        <Link to="/user-login"><li> Login</li></Link>
-                        <Link to="/sign-up"><li>Sign-up</li></Link>
-                        <Link to="/orders"><li>Orders</li></Link>
-                    </ul>
+                    <DropdownMenu />
                 </span>
             </div>
 

@@ -1,35 +1,25 @@
 import { useEffect, useState, ref, useRef } from "react";
 import { Link } from "react-router";
+import { useSelector } from "react-redux";
 
-function SearchBox({products}) {
+function SearchBox() {
 
     const [result, setResult] = useState([]);
     const [searchText, setSearchText] = useState("");
     const searchBox = useRef(null);
+    const products = useSelector((state) => state.product.productList);
 
-    async function searchProducts(e) {
+    function searchProducts(e) {
         const val = e.target.value;
         setSearchText(val);
         console.log(e.target.value);
-        // let res = await fetch('https://dummyjson.com/products/search?q={val}')
-        // .then(res => {
-        //     res.json();
-        //     if(res.products?.length > 0){
-        //         res.products? setResult( ...res.products) : '';
-        //     }
-            
-        // });
-        //.then(console.log);
-        
-        // console.log(res);
-        // setResult(...[], [...res.products]);
 
         const newResult = products.filter( product => product.title.toLowerCase().includes(val.toLowerCase()))
 
         setResult(newResult);
     }
 
-    const clearSearch =() => {
+    const clearSearch = () => {
         console.log(searchText);
         
         searchBox.current.value='';
