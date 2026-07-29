@@ -1,14 +1,16 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { loginUser, logoutUser } from "../store/UserSlice.jsx";
+import "../store/ProductSlice.jsx";
 import { validateLogin } from '../utils/formValidators.js';
 
 function UserLogin() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const userDetails = useSelector((state) => state.user.userDetails);
+    const userDetails = useSelector((state) => state.user.userDetails,shallowEqual);
+    const cartProducts = useSelector((state) => state.product.cartProducts);
     useEffect(() => {
         console.log('logout first!');
         dispatch(logoutUser());
@@ -16,8 +18,10 @@ function UserLogin() {
 
     const onSubmitHandler = (values) => {
         dispatch(loginUser(values));
-
-        if(localStorage.getItem("isAuthenticated") === 'true') {
+        console.log(userDetails);
+        if(localStorage.getItem("isAuthenticated") === 'true' && cartProducts.length > 0){
+            navigate('/delivery');
+        } else if(localStorage.getItem("isAuthenticated") === 'true') {
             navigate("/");
         } else {
             alert("Invalid username or password");

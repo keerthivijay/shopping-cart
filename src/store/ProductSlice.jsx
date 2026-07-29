@@ -15,9 +15,20 @@ const productSlice = createSlice({
         setCartProducts: (state, action) => {
             const productId = action.payload;
             const product = state.productList.find(p => p.id === productId);
+
             if (product) {
-                state.cartProducts.push(product);
-                state.cartCount += 1;
+                const cartProduct = state.cartProducts.find(p => p.id === productId);
+
+                if (cartProduct) {
+                    cartProduct.quantity += 1;
+                    cartProduct.total = cartProduct.price * cartProduct.quantity;
+                } else {
+                    product.quantity = 1;
+                    product.total = product.price;
+                    state.cartProducts.push({ ...product });
+                    state.cartCount += 1;
+                }
+                
             }
         },
         removeCartProduct: (state, action) => {
@@ -27,15 +38,24 @@ const productSlice = createSlice({
                 state.cartCount -= 1;
             }
         },
+        setCartProductQty: (state, action) => {
+            const { productId, quantity } = action.payload;
+
+            if (state.cartProducts) {
+                const cartProduct = state.cartProducts.find(p => p.id === productId);
+
+                if (cartProduct) {
+                    cartProduct.quantity = quantity;
+                    cartProduct.total = cartProduct.price * quantity;
+                }
+            }
+        },
         clearCart: (state) => {
             state.cartProducts = [];
             state.cartCount = 0;
-        },
-        cartProducts: (state) => {
-            return state.cartProducts;
         }
     }
 })
 
-export const { setProducts, setCartProducts, removeCartProduct, clearCart, cartProducts } = productSlice.actions;
+export const { setProducts, setCartProducts, removeCartProduct, clearCart, setCartProductQty } = productSlice.actions;
 export default productSlice.reducer;

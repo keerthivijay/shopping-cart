@@ -1,16 +1,17 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { userList } from '../../data.json';
 
 const userSlice = createSlice({
     name: "user",
     initialState: {
-        userList: [],
+        userList: userList,//[]
         userDetails: null
     },
     reducers: {
         createUser: (state, action) => {
             console.log("Creating user:", action.payload);
             state.userList.push(action.payload);
-            console.log("Updated user list:", state.userList);``
+            console.log("Updated user list:", state.userList);
         },
         loginUser: (state, action) => {
             const { username, password } = action.payload;
@@ -25,9 +26,6 @@ const userSlice = createSlice({
             localStorage.removeItem('isAuthenticated');
             localStorage.removeItem('auth');
             state.userDetails = null;
-        },
-        checkLoginStatus: (state, action) => {
-            return state.userDetails;
         }
     }
 });

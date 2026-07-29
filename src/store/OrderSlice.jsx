@@ -15,7 +15,6 @@ const orderSlice = createSlice({
     reducers: {
         createOrder: (state, action) => {
             state.orderList.push(state.orderDetails);
-            //state.orderDetails = action.payload;
         },
         addDeliveryInfo: (state, action) => {
             state.orderDetails.deliveryInfo = action.payload;
@@ -25,10 +24,10 @@ const orderSlice = createSlice({
         },
         addProductsToOrder: (state, action) => {
             state.orderDetails.products = action.payload;
-            state.orderDetails.total = action.payload.reduce((total, product) => total + product.price, 0);
+            state.orderDetails.total = action.payload.reduce((total, product) => total + product.total, 0);
         }
     }
 });
 
-export const { createOrder, addDeliveryInfo, addPaymentInfo, addProductsToOrder, orderDetails } = orderSlice.actions;
+export const { createOrder, addDeliveryInfo, addPaymentInfo, addProductsToOrder } = orderSlice.actions;
 export default orderSlice.reducer;

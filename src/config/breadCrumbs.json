@@ -1,0 +1,32 @@
+{
+    "contact":[
+        {"label": "Home", "url":"/"},
+        {"label": "Contact Us", "url":""}
+    ],
+    "products":[
+        {"label": "Home", "url":"/"},
+        {"label": "Products", "url":""}
+    ],
+    "product":[
+        {"label": "Home", "url":"/"},
+        {"label": "Products", "url":"/products"},
+        {"label": "Product", "url":""}
+    ],
+    "cart":[
+        {"label": "Home", "url":"/"},
+        {"label": "Cart", "url":""}
+    ],
+    "orders":[
+        {"label": "Home", "url":"/"},
+        {"label": "Orders", "url":""}
+    ],
+    "order-details":[
+        {"label": "Home", "url":"/"},
+        {"label": "Orders", "url":"/orders"},
+        {"label": "Order Details", "url":""}
+    ],
+    "user-profile":[
+        {"label": "Home", "url":"/"},
+        {"label": "User Profile", "url":""}
+    ]
+}

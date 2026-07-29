@@ -6,7 +6,7 @@ import Header from "../components/Header";
 import Menu from "../components/Menu";
 import Footer from "../components/Footer";
 import { addPaymentInfo, addProductsToOrder, createOrder } from "../store/OrderSlice.jsx";
-import { cartProducts, clearCart } from "../store/ProductSlice.jsx";
+import { clearCart } from "../store/ProductSlice.jsx";
 
 function PaymentDetails() {
 

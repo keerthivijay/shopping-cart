@@ -6,6 +6,8 @@ import Header from '../components/Header';
 import Menu from '../components/Menu';
 import Footer from '../components/Footer';
 import { removeCartProduct, clearCart } from '../store/ProductSlice';
+import '../store/UserSlice';
+import CartProductQuantity from '../components/CartProductQuantity';
 
 function CartDetails() {
 
@@ -14,14 +16,24 @@ function CartDetails() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const cartProducts = useSelector((state) => state.product.cartProducts) || [];
-    const totalPrice = useMemo(() => cartProducts.reduce((total, product) => total + product.price, 0), [cartProducts]);
+    const loggedUser = useSelector((state) => state.userDetails)
+    const totalPrice = useMemo(() => cartProducts.reduce((total, product) => total + (product.total || product.price * (product.quantity || 1)), 0), [cartProducts]);
 
-    function handleCheckout() {
+    const handleCheckout = () => {
+        if(cartProducts.length === 0) {
+            setOpen(true);
+        } else if(loggedUser!= null) {
+            navigate("/delivery");
+        } else {
+            navigate("/user-login")
+        }
+    }
 
+    const handleClearCart = ()=> {
         if(cartProducts.length === 0) {
             setOpen(true);
         } else {
-            navigate("/delivery");
+            dispatch(clearCart());
         }
     }
 
@@ -32,7 +44,7 @@ function CartDetails() {
                 <h1>Shopping Cart</h1>
                 <div className="cart-buttons">
                     <button className='btn btn-checkout' onClick={handleCheckout}>Checkout</button>
-                    <button className='btn btn-clear' onClick={() => dispatch(clearCart())}>Clear</button>
+                    <button className='btn btn-clear' onClick={handleClearCart}>Clear</button>
                 </div>
             </div>
 
@@ -45,6 +57,8 @@ function CartDetails() {
                             <img src="./src/assets/hero.png" alt={product.title} />
                             <p>{product.title}</p>
                             <p>${product.price.toFixed(2)}</p>
+                            <span>Qty: <CartProductQuantity productId={product.id} initialQuantity={product.quantity} /> </span>
+                            <p>Total: ${(product.total || product.price * (product.quantity || 1)).toFixed(2)}</p>
                             <button className="btn btn-danger" onClick={() => dispatch(removeCartProduct(product.id))}>
                             Remove
                             </button>
