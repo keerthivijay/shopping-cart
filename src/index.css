@@ -558,6 +558,14 @@ body {
   color: #fff;
 }
 
+.failure-message {
+  background-color: var(--failure);
+  padding: 20px;
+  border: var(--failure) 1px solid;
+  border-radius: 10px;
+  color: #fff;
+}
+
 .close-icon {
   float: right;
   top:10px;

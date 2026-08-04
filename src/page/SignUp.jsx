@@ -23,6 +23,7 @@ function SignUp() {
                 }}
                 validate={validateSignUp}
                 onSubmit={(values, { resetForm }) => {
+                    delete values['confirmpassword'];
                     console.log(values);
                     dispatch(createUser(values));
                     setStatus(true);

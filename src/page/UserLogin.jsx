@@ -5,12 +5,14 @@ import { ErrorMessage, Field, Form, Formik } from "formik";
 import { loginUser, logoutUser } from "../store/UserSlice.jsx";
 import "../store/ProductSlice.jsx";
 import { validateLogin } from '../utils/formValidators.js';
+import FailureMessage from "../components/FailureMessage.jsx";
 
 function UserLogin() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const userDetails = useSelector((state) => state.user.userDetails,shallowEqual);
+    const userDetails = useSelector((state) => state.user.userDetails);
     const cartProducts = useSelector((state) => state.product.cartProducts);
+    const [loginFail, setLoginFail] = useState(false);
     useEffect(() => {
         console.log('logout first!');
         dispatch(logoutUser());
@@ -21,16 +23,19 @@ function UserLogin() {
         console.log(userDetails);
         if(localStorage.getItem("isAuthenticated") === 'true' && cartProducts.length > 0){
             navigate('/delivery');
-        } else if(localStorage.getItem("isAuthenticated") === 'true') {
+            setLoginFail(false);
+        } else if(localStorage.getItem("isAuthenticated") === 'true' || userDetails!=null) {
             navigate("/");
+            setLoginFail(false);
         } else {
-            alert("Invalid username or password");
+            setLoginFail(true);
         }
     }
 
     return (
         <>
             <h1>User Login</h1>
+            { loginFail? <FailureMessage message={"Invalid username or password!"} />:'' }
             <Formik
                 initialValues={{ username: "", password: "" }}
                 validate={validateLogin}

@@ -10,14 +10,16 @@ const userSlice = createSlice({
     reducers: {
         createUser: (state, action) => {
             console.log("Creating user:", action.payload);
-            state.userList.push(action.payload);
+            const exuserList = [...state.userList];
+            exuserList.push(action.payload);
+            state.userList = [ ...exuserList]
             console.log("Updated user list:", state.userList);
         },
         loginUser: (state, action) => {
             const { username, password } = action.payload;
             const user = state.userList.find(user => user.email == username && user.password == password);
-            state.userDetails = user || null;
-            if(user) {
+            state.userDetails = (user!=undefined?{...user} : null);
+            if(state.userDetails!=null) {
                 localStorage.setItem("auth", JSON.stringify(user));
                 localStorage.setItem("isAuthenticated", true);
             }

@@ -16,7 +16,7 @@ function CartDetails() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const cartProducts = useSelector((state) => state.product.cartProducts) || [];
-    const loggedUser = useSelector((state) => state.userDetails)
+    const loggedUser = useSelector((state) => state.user.userDetails)
     const totalPrice = useMemo(() => cartProducts.reduce((total, product) => total + (product.total || product.price * (product.quantity || 1)), 0), [cartProducts]);
 
     const handleCheckout = () => {
@@ -58,7 +58,7 @@ function CartDetails() {
                             <p>{product.title}</p>
                             <p>${product.price.toFixed(2)}</p>
                             <span>Qty: <CartProductQuantity productId={product.id} initialQuantity={product.quantity} /> </span>
-                            <p>Total: ${(product.total || product.price * (product.quantity || 1)).toFixed(2)}</p>
+                            <p>Total: ${(product.total).toFixed(2)}</p>
                             <button className="btn btn-danger" onClick={() => dispatch(removeCartProduct(product.id))}>
                             Remove
                             </button>

@@ -28,5 +28,13 @@
     "user-profile":[
         {"label": "Home", "url":"/"},
         {"label": "User Profile", "url":""}
+    ],
+    "user-login":[
+        {"label": "Home", "url":"/"},
+        {"label": "Login", "url":""}
+    ],
+    "sign-up":[
+        {"label": "Home", "url":"/"},
+        {"label": "Sign Up", "url":""}
     ]
 }

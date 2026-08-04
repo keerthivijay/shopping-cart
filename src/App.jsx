@@ -10,10 +10,8 @@ import { routesConfig } from './config/routesConfig.jsx';
 
 import { setProducts } from './store/ProductSlice.jsx';
 
-import Footer from './components/Footer.jsx'
+
 import Layout from './components/Layout.jsx'
-import Menu from './components/Menu.jsx'
-import Header from './components/Header.jsx'
 import Modal from './components/modal.jsx'
 
 
@@ -51,8 +49,6 @@ function App() {
 
   return (
     <>
-      <Header />
-      <Menu />
       <Layout>
         <ErrorBoundary fallback={<div>Something went wrong!</div>}>
         <Routes>
@@ -69,7 +65,6 @@ function App() {
         </ErrorBoundary>
         {/* <Modal open={open} setOpen={setOpen} message="Cart items removed!" /> */}
       </Layout>
-      <Footer />
     </>
   )
 }
