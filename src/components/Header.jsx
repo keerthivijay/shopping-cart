@@ -12,8 +12,8 @@ const Header = () => {
             <Link to="/">
                 <h1>ShopIng</h1>
             </Link>
-            <div className="activity-bar">
-                <SearchBox />
+            <SearchBox />
+            <div className="activity-bar">    
                 <Link to="/cart">
                     <span className="cart-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24px" height="24px">

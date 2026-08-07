@@ -35,15 +35,27 @@ function OrderList() {
                     <span>Payment Method</span>
                     <span>Delivery Address</span>
                 </div>
-                { orders.length ==0? <div className="no-item">No Orders found!</div>:(
+                {orders.length == 0 ? <div className="no-item">No Orders found!</div> : (
                     orders.map((order) => (
-                    <div key={order.id} className="order-item">
-                        <span><Link to={`/order-details/${order.id}`}>{order.id}</Link></span>
-                        <span>${order.total.toFixed(2)}</span>
-                        <span>{order.paymentOption.name}</span>
-                        <span>{order.deliveryInfo.address}</span>
-                    </div>
-                    ))  
+                        <div key={order.id} className="order-item">
+                            <span><Link to={`/order-details/${order.id}`}>{order.id}</Link></span>
+                            <span>${order.total.toFixed(2)}</span>
+                            <span>{order.paymentOption.name}</span>
+                            <span>{order.deliveryInfo.address}</span>
+                        </div>
+                    ))
+                )}
+            </div>
+            <div className="order-list-mb">
+                {orders.length == 0 ? <div className="no-item">No Orders found!</div> : (
+                    orders.map((order) => (
+                        <div key={order.id} className="order-item-mb">
+                            <span className="order-id-mb"><Link to={`/order-details/${order.id}`}>{order.id}</Link></span><br />
+                            <span className="total-mb">${order.total.toFixed(2)}</span><br />
+                            <span className="payment-mb">{order.paymentOption.name}</span><br />
+                            <span className="del-addr-mb">{order.deliveryInfo.address}</span>
+                        </div>
+                    ))
                 )}
             </div>
         </>

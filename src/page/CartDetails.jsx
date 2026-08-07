@@ -58,9 +58,12 @@ function CartDetails() {
                             <p>{product.title}</p>
                             <p>${product.price.toFixed(2)}</p>
                             <span>Qty: <CartProductQuantity productId={product.id} initialQuantity={product.quantity} /> </span>
-                            <p>Total: ${(product.total).toFixed(2)}</p>
+                            <span className='product-total'>Total: ${(product.total).toFixed(2)}</span>
                             <button className="btn btn-danger" onClick={() => dispatch(removeCartProduct(product.id))}>
                             Remove
+                            </button>
+                            <button className="btn btn-danger-mobile" onClick={() => dispatch(removeCartProduct(product.id))}>
+                            X
                             </button>
                         </div>)
                     )
