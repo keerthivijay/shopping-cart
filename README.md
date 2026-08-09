@@ -1,16 +1,70 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# ShoppingCart
 
-Currently, two official plugins are available:
+ShoppingCart is a full featured e-commerce application build using ReactJS. It allows users to browse products, manage their cart in real-time, register/login securely, and stimulate a checkout process with secure payments.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-## React Compiler
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Features
 
-## Expanding the ESLint configuration
+- Product catalog - Browse, search, and filter products.
+- Checkout System - Step by step checkout including shopping and payment
+- Order history - Track previous orders, delivery status and receipts.
+- Cross platform
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+## Tech Stack
+
+**Client:** React, Redux, css, Js, Html
+
+## Run Locally
+
+Clone the project
+
+```bash
+  git clone https://github.com/keerthivijay/shopping-cart.git
+```
+
+Go to the project directory
+
+```bash
+  cd shopping-cart
+```
+
+Install dependencies
+
+```bash
+  npm install
+```
+
+Start the server
+
+```bash
+  npm run dev
+```
+
+
+## Project Structure
+
+```text
+├── project/
+│   ├── public/          # Static assets
+|   └──  src/            
+│       ├── assets           # Images and icons
+│       ├── components/  # Reusable UI elements (Navbar, Footer, CartItem)
+│       ├── config/      # Routes and breadcrubls Json
+│       ├── pages/       # Page components (Home, Cart, Product, Login)
+│       ├── store/       # Redux store and slices
+│       ├── utils/       # Validations and debounce methods
+│       └── App.js       # Main React app router
+└── README.md
+```
+
+## License
+
+Copyright (c) 2026 keerthivijay
+
+## Author
+
+- [@keerthivijay](https://github.com/keerthivijay)
+
