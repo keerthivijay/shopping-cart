@@ -28,7 +28,7 @@ const DropdownMenu = () => {
             )}
             {loginState && (
                 <>
-                    <Link to="/user-profile"><li>Profile</li></Link>
+                    <Link to="/user-profile"><li>My Account</li></Link>
                     <Link to="/orders"><li>Orders</li></Link>
                     <Link to="/user-login" onClick={logout}><li>Logout</li></Link>
                 </>

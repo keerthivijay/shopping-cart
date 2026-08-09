@@ -20,17 +20,17 @@ function CartDetails() {
     const totalPrice = useMemo(() => cartProducts.reduce((total, product) => total + (product.total || product.price * (product.quantity || 1)), 0), [cartProducts]);
 
     const handleCheckout = () => {
-        if(cartProducts.length === 0) {
+        if (cartProducts.length === 0) {
             setOpen(true);
-        } else if(loggedUser!= null) {
+        } else if (loggedUser != null) {
             navigate("/delivery");
         } else {
             navigate("/user-login")
         }
     }
 
-    const handleClearCart = ()=> {
-        if(cartProducts.length === 0) {
+    const handleClearCart = () => {
+        if (cartProducts.length === 0) {
             setOpen(true);
         } else {
             dispatch(clearCart());
@@ -39,42 +39,45 @@ function CartDetails() {
 
     return (
         <>
-        <div className="cart-details">
             <div className="cart-header">
                 <h1>Shopping Cart</h1>
-                <div className="cart-buttons">
-                    <button className='btn btn-checkout' onClick={handleCheckout}>Checkout</button>
-                    <button className='btn btn-clear' onClick={handleClearCart}>Clear</button>
-                </div>
-            </div>
 
-            <div className="cart-items">
-                {!cartProducts || cartProducts.length === 0 ? (
+            </div>
+            <div className="cart-details">
+                <div className="cart-items">
+                    {!cartProducts || cartProducts.length === 0 ? (
                     <p>Your cart is empty.</p>
-                ) : (
-                    cartProducts.map((product, index) => (
-                        <div key={index} className="cart-item">
-                            <img src="./src/assets/hero.png" alt={product.title} />
-                            <p>{product.title}</p>
-                            <p>${product.price.toFixed(2)}</p>
-                            <span>Qty: <CartProductQuantity productId={product.id} initialQuantity={product.quantity} /> </span>
-                            <span className='product-total'>Total: ${(product.total).toFixed(2)}</span>
-                            <button className="btn btn-danger" onClick={() => dispatch(removeCartProduct(product.id))}>
-                            Remove
-                            </button>
-                            <button className="btn btn-danger-mobile" onClick={() => dispatch(removeCartProduct(product.id))}>
-                            X
-                            </button>
-                        </div>)
-                    )
-                )}
+                    ) : (
+                        cartProducts.map((product, index) => (
+                            <div key={index} className="cart-item">
+                                <img src="./src/assets/hero.png" alt={product.title} />
+                                <p>{product.title}</p>
+                                <span className='product-price'>${product.price.toFixed(2)}</span>
+                                <span className='product-quantity'><CartProductQuantity productId={product.id} initialQuantity={product.quantity} /> </span>
+                                <span className='product-total'>Total: ${(product.total).toFixed(2)}</span>
+                                <button className="btn btn-danger" onClick={() => dispatch(removeCartProduct(product.id))}>
+                                    Remove
+                                </button>
+                                <button className="btn btn-danger-mobile" onClick={() => dispatch(removeCartProduct(product.id))}>
+                                    X
+                                </button>
+                            </div>)
+                        )
+                    )}
+                </div>
+                {!cartProducts || cartProducts.length === 0 ? '' : (
+                <div className="cart-summary">
+                    <h2>Price Details</h2>
+                    <div>MRP: ${totalPrice.toFixed(2)}</div><br />
+                    <div>Discount: 0.00</div>
+                    <h2>Total: ${totalPrice.toFixed(2)}</h2>
+                    <div className="cart-buttons">
+                        <button className='btn btn-checkout' onClick={handleCheckout}>Checkout</button>
+                        <button className='btn btn-clear' onClick={handleClearCart}>Clear</button>
+                    </div>
+                </div>)}
+                <Modal open={open} setOpen={setOpen} message="Cart is empty!" />
             </div>
-
-            <div className="cart-total">
-                <h2>Total: ${totalPrice.toFixed(2)}</h2>
-            </div>
-            <Modal open={open} setOpen={setOpen} message="Cart is empty!" />
-        </div>
         </>
     );
 }

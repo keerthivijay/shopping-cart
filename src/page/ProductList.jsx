@@ -8,13 +8,12 @@ import ProductFilters from '../components/ProductFilters';
 
 function ProductList() {
 
-    const [finalProducts, setFinalProducts] = useState([]);
-    
     const products = useSelector((state) => state.product.productList);
+    const [finalProducts, setFinalProducts] = useState(products);
 
     useEffect(() => {
-        setFinalProducts(prev => [...products]);
-    },[]);
+        setFinalProducts([...products]);
+    }, [products]);
     
     return (
         <>

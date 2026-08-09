@@ -43,17 +43,13 @@ function SearchBox() {
         } else if (e.key === "ArrowUp") {
             e.preventDefault();
             setSelectedIndex((prev) => prev === 0 ? 0 : prev - 1);
-        } else if (e.key === 'Enter') {
-            navigate(`/product/${result[selectedIndex].id}`);
+        } else if (e.key === 'Enter' || e.key === 'Escape') {
+            e.preventDefault();
             setSelectedIndex(-1);
             setResult([]);
             clearSearch();
             searchBox.current.blur();
-        } else if (e.key === 'Escape') {
-            setSelectedIndex(-1);
-            setResult([]);
-            clearSearch();
-            searchBox.current.blur();
+            e.key === 'Enter'?navigate(`/product/${result[selectedIndex].id}`):'';
         }
     }
 

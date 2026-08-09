@@ -1,5 +1,5 @@
 export const validateDelivery = (values) => {
-        const errors = {};
+    const errors = {};
 
     if (!values.name.trim()) {
         errors.name = "Name is required";
@@ -17,6 +17,16 @@ export const validateDelivery = (values) => {
 
     return errors;
 };
+
+export const validatePaymentOption = (values) => {
+    const errors = {};
+
+    if (!values.payment) {
+        errors.payment = "Please select payment method!";
+    }
+
+    return errors;
+}
 
 export const validateSignUp = (values) => {
     const errors = {};

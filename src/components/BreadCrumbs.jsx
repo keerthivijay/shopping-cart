@@ -3,9 +3,7 @@ import data from '../config/breadCrumbs.json';
 
 const BreadCrumbs = () => {
 
-    const location = useLocation();
-    const pathnames = location.pathname.split('/').filter((x) => x);
-    const route = pathnames[0];
+    const route = useLocation().pathname.split('/').filter((x) => x)[0];
     const breadCrumbs = data[route];
 
     return(

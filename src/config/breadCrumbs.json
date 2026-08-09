@@ -27,7 +27,7 @@
     ],
     "user-profile":[
         {"label": "Home", "url":"/"},
-        {"label": "User Profile", "url":""}
+        {"label": "My Account", "url":""}
     ],
     "user-login":[
         {"label": "Home", "url":"/"},

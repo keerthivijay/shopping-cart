@@ -23,7 +23,7 @@ const Header = () => {
                     </span>
                 </Link>
                 <span className="user-icon">
-                    <img src="../src/assets/user.png" alt="User Icon" className="user-icon" />
+                    <img src="../src/assets/user.png" tabIndex={0} role='button' alt="User Icon" className="user-icon" />
                     <DropdownMenu />
                 </span>
             </div>
