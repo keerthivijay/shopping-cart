@@ -8,10 +8,13 @@ function Reviews({reviews}){
             {reviews.map((review, index) => (
                 <div className="review" key={index}>
                     <hr/>
-                    <p>Name: {review.reviewerName}</p>
-                    <p>Comment {review.comment}</p>
-                    <p>Rating: {review.rating}</p>
+                    <div>
+                    <span><strong>{review.reviewerName}</strong></span>
                     <StarRating rating={review.rating} />
+                    <span className="review-date">{new Date(review.date).toDateString()}</span>
+                    {/* <p>{review.rating}</p> */}
+                    </div>
+                    <p>{review.comment}</p>
                 </div>
                 )
             )}

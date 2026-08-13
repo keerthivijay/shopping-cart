@@ -68,7 +68,8 @@ function SearchBox() {
 
     return (
         <div className="search-bar">
-            <input type="text" name="search" ref={searchBox} id="search" className="search-input" autoComplete="off" onKeyDown={handleKeyDown} onChange={searchProducts} />
+            <input type="text" name="search" ref={searchBox} id="search" className="search-input" autoComplete="off" placeholder="Search products" onKeyDown={handleKeyDown} onChange={searchProducts} />
+            <img className="search-icon" src="../src/assets/magnifying-glass.png" />
             <input type="button" className="btn-search" id="searchBtn" value="x" onClick={clearSearch} />
             <ul ref={containerRef} className={searchText == "" ? 'search-result' : 'search-result-active'} onClick={clearSearch}>
                 {result?.map((product, index) => (

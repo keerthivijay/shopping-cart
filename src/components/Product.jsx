@@ -11,8 +11,8 @@ function Product({ id, title, price, thumbnail }) {
             <Link to={`/product/${id}`}>
                  <img src={thumbnail} alt={title} />
             </Link>
-            <p className="product-title">{title}</p>
-            <p>${price.toFixed(2)}</p>
+            <span className="product-title">{title}</span>
+            <span>${price.toFixed(2)}</span>
             <button className="btn btn-addcart" onClick={() => dispatch(setCartProducts(id))}>
                 Add to Cart
             </button>

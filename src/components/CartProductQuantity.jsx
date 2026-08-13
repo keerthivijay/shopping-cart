@@ -22,9 +22,9 @@ const CartProductQuantity = ({ productId, initialQuantity }) => {
 
     return (
         <>
-            <button className="Btn-add" onClick={() => handleQuantityChange('add')}>+</button>
+            <button className="btn-add" onClick={() => handleQuantityChange('add')}>+</button>
             {quantity}
-            <button className="Btn-remove" onClick={() => handleQuantityChange('remove')}>-</button>
+            <button className="btn-remove" onClick={() => handleQuantityChange('remove')}>-</button>
         </>
     );
 };
