@@ -70,7 +70,7 @@ function SearchBox() {
         <div className="search-bar">
             <input type="text" name="search" ref={searchBox} id="search" className="search-input" autoComplete="off" placeholder="Search products" onKeyDown={handleKeyDown} onChange={searchProducts} />
             <img className="search-icon" src="../src/assets/magnifying-glass.png" />
-            <input type="button" className="btn-search" id="searchBtn" value="x" onClick={clearSearch} />
+            <i className="btn-search-clear" onClick={clearSearch}><img className="btn-search-clear" src="../src/assets/close.png" /></i>
             <ul ref={containerRef} className={searchText == "" ? 'search-result' : 'search-result-active'} onClick={clearSearch}>
                 {result?.map((product, index) => (
                     <Link to={`/product/${product.id}`}>
