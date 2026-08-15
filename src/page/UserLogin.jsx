@@ -44,13 +44,16 @@ function UserLogin() {
                 }}
             >
                 <Form className="form form-sign-in" action="#">
-                    <label htmlFor="username">User name:</label>
-                    <Field type="text" name="username" id="username" />
-                    <ErrorMessage name="username" component="div" className="error" />
-
-                    <label htmlFor="password">Password:</label>
-                    <Field type="password" name="password" id="password" />
-                    <ErrorMessage name="password" component="div" className="error" />
+                    <div className='form-group'>
+                        <label htmlFor="username">User name:</label>
+                        <Field type="text" name="username" id="username" />
+                        <ErrorMessage name="username" component="div" className="error" />
+                    </div>
+                    <div className='form-group'>
+                        <label htmlFor="password">Password:</label>
+                        <Field type="password" name="password" id="password" />
+                        <ErrorMessage name="password" component="div" className="error" />
+                    </div>
 
                     <button className="btn btn-login" type="submit">Login</button>
                 </Form>

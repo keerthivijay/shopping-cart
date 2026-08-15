@@ -31,25 +31,31 @@ function SignUp() {
                 }}
             >
                 <Form className="form form-sign-up" action="#">
-                    <label htmlFor="name">Name:</label>
-                    <Field type="text" name="name" id="name" />
-                    <ErrorMessage name="name" component="div" className="error" />
-
-                    <label htmlFor="mobile">Mobile No:</label>
-                    <Field type="text" name="mobile" id="mobile" />
-                    <ErrorMessage name="mobile" component="div" className="error" />
-
-                    <label htmlFor="email">E-mail Id:</label>
-                    <Field type="email" name="email" id="email" />
-                    <ErrorMessage name="email" component="div" className="error" />
-
-                    <label htmlFor="password">Password:</label>
-                    <Field type="password" name="password" id="password" />
-                    <ErrorMessage name="password" component="div" className="error" />
-
-                    <label htmlFor="confirmpassword">Confirm Password:</label>
-                    <Field type="password" name="confirmpassword" id="confirmpassword" />
-                    <ErrorMessage name="confirmpassword" component="div" className="error" />
+                    <div className='form-group'>
+                        <label htmlFor="name">Name:</label>
+                        <Field type="text" name="name" id="name" />
+                        <ErrorMessage name="name" component="div" className="error" />
+                    </div>
+                    <div className='form-group'>
+                        <label htmlFor="mobile">Mobile No:</label>
+                        <Field type="text" name="mobile" id="mobile" />
+                        <ErrorMessage name="mobile" component="div" className="error" />
+                    </div>
+                    <div className='form-group'>
+                        <label htmlFor="email">E-mail Id:</label>
+                        <Field type="email" name="email" id="email" />
+                        <ErrorMessage name="email" component="div" className="error" />
+                    </div>
+                    <div className='form-group'>
+                        <label htmlFor="password">Password:</label>
+                        <Field type="password" name="password" id="password" />
+                        <ErrorMessage name="password" component="div" className="error" />
+                    </div>
+                    <div className='form-group'>
+                        <label htmlFor="confirmpassword">Confirm Password:</label>
+                        <Field type="password" name="confirmpassword" id="confirmpassword" />
+                        <ErrorMessage name="confirmpassword" component="div" className="error" />
+                    </div>
 
                     <button className="btn btn-sign-up" type="submit">Sign Up</button>
                 </Form>

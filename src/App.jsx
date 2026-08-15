@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import ProtectedRoute from './components/ProtectedRoute.jsx'
 import { protectedRoutesConfig } from './config/protectedRoutesConfig.jsx';
 import { routesConfig } from './config/routesConfig.jsx';
+import ScrollToTop from './components/ScrollToTop.jsx';
 
 import { setProducts } from './store/ProductSlice.jsx';
 
@@ -21,6 +22,7 @@ function App() {
   const userDetails = useSelector((state) => state.user.userDetails);
   console.log('login rerender',userDetails);
   const [open, setOpen] = useState(false);
+  console.log('App rendered in outside');
 
   useEffect(
     useCallback(
@@ -36,6 +38,7 @@ function App() {
           // setData(prev => ({...prev, 
           //   ["products"] : productsJSON.products
           // }));
+          console.log(productsJSON);
           dispatch(setProducts(productsJSON.products));
 
         } catch (error) {
@@ -44,6 +47,7 @@ function App() {
         }
       }
       fetchData();
+      console.log('App rendered in useEffect');
     }),
   []);
 
@@ -51,6 +55,7 @@ function App() {
     <>
       <Layout>
         <ErrorBoundary fallback={<div>Something went wrong!</div>}>
+        <ScrollToTop/>
         <Routes>
           {routesConfig.map((route, index) => (
             <Route key={index} path={route.path} element={route.element} />

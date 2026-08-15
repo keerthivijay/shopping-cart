@@ -11,7 +11,7 @@ function Contact() {
             <div className="contact">
                 <h1>Contact Us</h1>
                 <p>Please feel free to reach out to us with any questions or feedback.</p>
-                {submitStatus ? <SuccessMessage message="Message sent successfully!" /> : ""}
+                { submitStatus? <SuccessMessage message="Message sent successfully!" submitStatus={submitStatus} /> : ''}
                 <Formik
                     initialValues={{ name: "", email: "", mobile: "", message: "" }}
                     validate={validateContact}
@@ -22,21 +22,26 @@ function Contact() {
                     }}
                 >
                     <Form className="form">
-                        <label htmlFor="name">Name:</label>
-                        <Field type="text" name="name" id="name" />
-                        <ErrorMessage name="name" component="div" className="error" />
-
-                        <label htmlFor="email">E-mail:</label>
-                        <Field type="email" name="email" id="email" />
-                        <ErrorMessage name="email" component="div" className="error" />
-
-                        <label htmlFor="mobile">Mobile No:</label>
-                        <Field type="text" name="mobile" id="mobile" />
-                        <ErrorMessage name="mobile" component="div" className="error" />
-
-                        <label htmlFor="message">Message:</label>
-                        <Field as="textarea" name="message" id="message" rows="5" />
-                        <ErrorMessage name="message" component="div" className="error" />
+                        <div className='form-group'>
+                            <label htmlFor="name">Name:</label>
+                            <Field type="text" name="name" id="name" />
+                            <ErrorMessage name="name" component="div" className="error" />
+                        </div>
+                        <div className='form-group'>
+                            <label htmlFor="email">E-mail:</label>
+                            <Field type="email" name="email" id="email" />
+                            <ErrorMessage name="email" component="div" className="error" />
+                        </div>
+                        <div className='form-group'>
+                            <label htmlFor="mobile">Mobile No:</label>
+                            <Field type="text" name="mobile" id="mobile" />
+                            <ErrorMessage name="mobile" component="div" className="error" />
+                        </div>
+                        <div className='form-group'>
+                            <label htmlFor="message">Message:</label>
+                            <Field as="textarea" name="message" id="message" rows="5" />
+                            <ErrorMessage name="message" component="div" className="error" />
+                        </div>
 
                         <button className="btn" type="submit">Submit</button>
                     </Form>

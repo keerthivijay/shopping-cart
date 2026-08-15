@@ -9,7 +9,7 @@ function Product({ id, title, price, thumbnail }) {
     return (
         <div className="product">
             <Link to={`/product/${id}`}>
-                 <img src={thumbnail} alt={title} />
+                 <img src={thumbnail} alt={title} loading="lazy" />
             </Link>
             <span className="product-title">{title}</span>
             <span>${price.toFixed(2)}</span>
