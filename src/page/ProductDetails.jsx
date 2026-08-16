@@ -33,21 +33,23 @@ function ProductDetails() {
                 ))}
                 </div>
                 <div className="product-basic-info">
-                    <h1>{product.title}</h1>
+                    <h3>{product.title}</h3>
                     <div className="product-overall-rating" >Rating: <StarRating rating={product.rating} /> ({product.rating}/5)</div>
                     
                     {/* <span className="star">&#9733;</span> */}
-                    <Tags tags={product.tags} />
+                    {/* <Tags tags={product.tags} /> */}
                     <p><b>Price:</b> ${product.price.toFixed(2)}</p>
                     <p><b>Availability:</b> {product.availabilityStatus}</p>
+                    <p><b>Delivery:</b> {product.shippingInformation}</p>
                     <button className="btn btn-add-cart" onClick={() => dispatch(setCartProducts(product.id))}>
                         Add to Cart
                     </button>
                 </div>
             </div>
-            <p><b>Description:</b><br/> {product.description}</p>
-            <p>Return Policy: {product.returnPolicy}</p>
-            <p>Warranty: {product.warrantyInformation}</p>
+            <h2>All details</h2>
+            <p><b>Description:</b> {product.description}</p>
+            <p><b>Return Policy:</b> {product.returnPolicy}</p>
+            <p><b>Warranty:</b> {product.warrantyInformation}</p>
             <Reviews reviews={product.reviews} />
         </div>
     );

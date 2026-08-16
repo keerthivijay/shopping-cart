@@ -6,6 +6,7 @@ const orderSlice = createSlice({
         orderList: [],
         orderDetails: {
             id: Date.now(),
+            date : new Date().toLocaleDateString('en-GB'),
             products: [],
             deliveryInfo: {},
             paymentOption: {},

@@ -4,7 +4,7 @@ function Reviews({reviews}){
 
     return(
         <div className="reviews">
-            <h2>Reviews</h2>
+            <h2>Ratings and Reviews</h2>
             {reviews.map((review, index) => (
                 <div className="review" key={index}>
                     <hr/>
