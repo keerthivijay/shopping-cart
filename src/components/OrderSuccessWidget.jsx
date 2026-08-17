@@ -16,7 +16,7 @@ function OrderSuccessWidget() {
                     <p>Phone: {orderDetails.deliveryInfo.phone}</p>
                 </div>
                 <div className="order-payment">
-                    <h2>Payment Information</h2>
+                    <h2>Payment Mode</h2>
                     <p>{orderDetails.paymentOption.name}</p>
                 </div>
                 <div className="order-summary">
@@ -30,7 +30,7 @@ function OrderSuccessWidget() {
             </div>
             <div className="order-product-delivery-info">
                 {orderDetails.products.map((product) => (
-                    <div className="order-product-info"><img src={product.thumbnail} /><span>{product.shippingInformation}</span></div>
+                    <div className="order-product-info"><img src={product.thumbnail} /><span className="product-name">{product.title}</span><span className="delivery-date">{product.shippingInformation}</span></div>
                 ))}
             </div>
         </div>

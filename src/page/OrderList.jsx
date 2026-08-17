@@ -1,34 +1,30 @@
 import { Link } from "react-router";
 import { useSelector } from "react-redux";
 
-import DataTable from 'datatables.net-react';
-import DT from 'datatables.net-bs5';
-import 'datatables.net-bs5/css/dataTables.bootstrap5.min.css';
-
-DataTable.use(DT); // Initialize Bootstrap 5 styling
+import DataTable from 'react-data-table-component';
 
 
 function OrderList() {
 
     const orders = useSelector((state) => state.order.orderList);
     console.log("OrderList received orders:", orders);
+
+    const columns = [
+        { name: 'Order ID', selector: row => row.id, sortable: true, cell: row => (<Link to={`/order-details/${row.id}`}>{row.id}</Link>) },
+        { name: 'Total', selector: row => row.total, sortable: true },
+        { name: 'Pament Method', selector: row => row.paymentOption.name },
+        { name: 'Delivery Address', selector: row => row.deliveryInfo.address }
+        ];
+
     return (
+        
         <>
-            <h1>Order List</h1>
+            <h1>Orders List</h1>
             <p>This is where the order list will be displayed.</p>
 
-            {/* <DataTable
-                data={orders}
-                className="table table-striped display" // Bootstrap table classes
-                >
-                <thead>
-                    <tr>
-                        <th>Order id</th>
-                        <th>Total</th>
-                    </tr>
-                </thead>
-            </DataTable> */}
-            <div className="order-list">
+            <DataTable columns={columns} data={orders} pagination />
+
+            {/* <div className="order-list">
                 <div className="order-list-header">
                     <span>Order ID</span>
                     <span>Total</span>
@@ -57,7 +53,7 @@ function OrderList() {
                         </div>
                     ))
                 )}
-            </div>
+            </div> */}
         </>
     );
 }
