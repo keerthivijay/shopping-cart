@@ -790,7 +790,12 @@ input[type="range"]::-webkit-slider-thumb {
 .payment-options {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 20px;
+  padding: 10px;
+}
+
+fieldset {
+  border-radius: 5px;
 }
 
 .payment-option {
