@@ -1,14 +1,24 @@
-function SuccessMessage({message}) {
+import { useEffect, useState } from "react";
+
+function SuccessMessage({message, submitStatus=true}) {
+
+    const [open, setOpen] = useState(submitStatus);
+
+    setTimeout(() => {
+        setOpen(false);
+    },3000);
 
     return(
-
+         ((open) ?  (
         <div className="success-message">
-            <h1>Success</h1>
-            <span className="close-icon">X</span>
-            <p>
-                {message}
-            </p>
-        </div>
+            <div>
+                <h1>Success</h1>
+                <p>
+                    {message}
+                </p>
+            </div>                    
+            <span className="close-icon"><img src="../src/assets/close-white-no-bg.png" onClick={() => setOpen(false)} /></span>
+        </div>): '')
     );
 }
 

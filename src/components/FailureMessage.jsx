@@ -1,14 +1,25 @@
-function FailureMessage({message}) {
+import { useEffect, useState } from "react";
+
+function FailureMessage({message,submitStatus=true}) {
+
+    const [open, setOpen] = useState(submitStatus);
+
+    setTimeout(() => {
+        setOpen(false);
+    },3000);
 
     return(
-
+        ((open) ?  (
         <div className="failure-message">
-            <h1>Failed</h1>
-            <span className="close-icon">X</span>
-            <p>
-                {message}
-            </p>
+            <div>
+                <h1>Failed</h1>
+                <p>
+                    {message}
+                </p>
+            </div>
+            <span className="close-icon"><img src="../src/assets/close-white-no-bg.png" onClick={() => setOpen(false)} /></span>
         </div>
+        ): '')
     );
 }
 
