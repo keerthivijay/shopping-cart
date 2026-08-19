@@ -55,6 +55,7 @@ Start the server
 │       ├── config/      # Routes and breadcrubls Json
 │       ├── pages/       # Page components (Home, Cart, Product, Login)
 │       ├── store/       # Redux store and slices
+│       ├── store/       # Unit testing scripts
 │       ├── utils/       # Validations and debounce methods
 │       └── App.js       # Main React app router
 └── README.md
