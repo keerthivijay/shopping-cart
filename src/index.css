@@ -24,6 +24,15 @@ body {
 }
 
 .header {
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+  background: white;
+  z-index: 1;
+}
+
+.top-bar {
   padding: 16px;
   display: flex;
   justify-content: space-between;
@@ -688,6 +697,7 @@ input[type="range"]::-webkit-slider-thumb {
   display: flex;
   justify-content: center;
   width: 100%;
+  margin: 10px;
 }
 
 .search-bar:hover .btn-search-clear {
@@ -1091,6 +1101,14 @@ fieldset {
     gap: 8px;
   }
 
+  .top-bar {
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+  }
+
   .menu {
     flex-direction: column;
     text-align: center;
@@ -1168,8 +1186,8 @@ fieldset {
   }
 
   .menu-list {
-    flex-direction: column;
-    gap: 8px;
+    /* flex-direction: column;
+    gap: 8px; */
   }
 
   .menu-item {
@@ -1234,6 +1252,10 @@ fieldset {
   .cart-summary {
     width: 100%;
     margin-bottom: 10px;
+  }
+
+  .btn {
+    padding: 8px 15px;
   }
 
   .btn-danger {
