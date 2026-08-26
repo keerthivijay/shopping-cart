@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import SearchBox from './SearchBox';
 import DropdownMenu from './DropdownMenu';
 import Menu from './Menu';
+import ToggleTheme from './ToggleTheme';
 
 const Header = () => {
     
@@ -30,6 +31,7 @@ const Header = () => {
                     </span>
                 </div>
             </div>
+            <ToggleTheme/>
             <Menu/>
         </div>
     );

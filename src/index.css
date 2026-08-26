@@ -6,13 +6,22 @@
   --primary: #4c4848;
   --secondary: #fff;
   --border: #ccc;
-  ---background: #f9f9f9;
+  --background: #ffff;
+  ---background-icon: #f9f9f9;
   ---background-hover: #f0eded;
   ---background-header: #b0b0b0;
   --social-bg: #e0e0e0;
   --failure: #ff4d4d;
   --success: #4CAF50;
   box-sizing: border-box;
+}
+
+:root.dark {
+  --background: #060101;
+  --primary: #f3efef;
+  --secondary: #0c0101;
+  ---background-hover: #a4a2a2;
+  ---background-header: #4d4949;
 }
 
 body {
@@ -28,7 +37,7 @@ body {
   flex-direction: column;
   position: sticky;
   top: 0;
-  background: white;
+  background: var(--background);
   z-index: 1;
 }
 
@@ -117,6 +126,47 @@ body {
   border: none;
   transform: scale(1.1);
 }
+/* Theme swich Starts*/
+.theme-selection {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.change-theme {
+  display: none;
+}
+.change-theme-label {
+  display: inline-block;
+  width: 40px;
+  height: 18px;
+  background-color: #8e8d8f;
+  border-radius: 10px;
+  position: relative;
+}
+
+.change-theme-label::before {
+  content: "\2600";
+  background-color: #fff;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+}
+
+.change-theme:checked + .change-theme-label::before {
+  content: "\263E";
+  background-color: #000;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 24px;
+  transition: background-color 0.3s ease;
+}
+
+/* Theme switch ends */
 
 .products-container {
   /* display: flex;
@@ -360,6 +410,7 @@ input[type="range"]::-webkit-slider-thumb {
   height: 32px;
   border-radius: 50%;
   cursor: pointer;
+  background-color: var(---background-icon);
 }
 
 .user-menu {
@@ -680,7 +731,7 @@ input[type="range"]::-webkit-slider-thumb {
     height: 38px;
     top: 0%;
     left: 13%;
-    /* background: var(---background-header); */
+    background: var(---background-icon);
     border: 1px solid var(--border);
     padding: 0px;
     align-items: center;
@@ -721,7 +772,8 @@ input[type="range"]::-webkit-slider-thumb {
   display: block;
   position: absolute;
   border: 1px solid var(--border);
-  background-color: var(---background);
+  background-color: var(---background-icon);
+  color: var(--secondary);
   padding: 5px;
   margin: 0;
   width: 65%;
@@ -965,6 +1017,7 @@ fieldset {
   .rdt_headRow  {
     font-weight: bold;
     background-color: var(---background-header);
+    color: var(--primary);
   }
   .rdt_row:hover {
     background-color: var(---background-hover);
@@ -1056,7 +1109,7 @@ fieldset {
   height: 25px;
   font-size: 18px;
   cursor: pointer;
-  background-color: var(---background);
+  background-color: var(---background-icon);
   border: 1px solid var(--border);
   border-radius: 50%;
   display: flex;
@@ -1172,7 +1225,7 @@ fieldset {
   }
 
   .product {
-    width: 100%;
+    width: 47%;
     margin: 0 auto;
   }
 
