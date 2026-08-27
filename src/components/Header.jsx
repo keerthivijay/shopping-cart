@@ -13,7 +13,7 @@ const Header = () => {
         <div className="header">
             <div className="top-bar">
                 <Link to="/">
-                    <h1>ShopIng</h1>
+                    <img src="../src/assets/logo.png" alt="logo" className='logo' />
                 </Link>
                 <SearchBox />
                 <div className="activity-bar">    
@@ -29,9 +29,9 @@ const Header = () => {
                         <img src="../src/assets/user.png" tabIndex={0} role='button' alt="User Icon" className="user-icon" />
                         <DropdownMenu />
                     </span>
+                    <ToggleTheme/>
                 </div>
             </div>
-            <ToggleTheme/>
             <Menu/>
         </div>
     );
