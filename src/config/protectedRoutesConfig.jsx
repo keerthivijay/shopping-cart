@@ -1,5 +1,4 @@
-import UserProfile from '../page/UserProfile.jsx';
-import OrderList from '../page/OrderList.jsx';
+import { UserProfile, OrderList } from './lazyPages.jsx';
 
 
 export const protectedRoutesConfig = [

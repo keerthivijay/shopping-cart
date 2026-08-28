@@ -56,6 +56,7 @@ function App() {
       <Layout>
         <ErrorBoundary fallback={<div>Something went wrong!</div>}>
         <ScrollToTop/>
+        <Suspense fallback={<div>Loading...</div>}>
         <Routes>
           {routesConfig.map((route, index) => (
             <Route key={index} path={route.path} element={route.element} />
@@ -67,6 +68,7 @@ function App() {
           </Route>
           <Route path="*" element={<h1>404 Not Found</h1>} />
         </Routes>
+        </Suspense>
         </ErrorBoundary>
         {/* <Modal open={open} setOpen={setOpen} message="Cart items removed!" /> */}
       </Layout>

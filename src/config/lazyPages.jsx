@@ -1,0 +1,16 @@
+import { lazy } from 'react'
+
+export const ProductDetails = lazy(() => import('../page/ProductDetails.jsx'))
+export const CartDetails = lazy(() => import('../page/CartDetails.jsx'))
+export const ProductList = lazy(() => import('../page/ProductList.jsx'))
+export const Contact = lazy(() => import('../page/Contact.jsx'))
+export const DeliveryDetails = lazy(() => import('../page/DeliveryDetails.jsx'))
+export const PaymentDetails = lazy(() => import('../page/PaymentDetails.jsx'))
+export const OrderSuccess = lazy(() => import('../page/OrderSuccess.jsx'))
+export const OrderFailure = lazy(() => import('../page/OrderFailure.jsx'))
+export const Home = lazy(() => import('../page/Home.jsx'))
+export const OrderDetails = lazy(() => import('../page/OrderDetails.jsx'))
+export const UserLogin = lazy(() => import('../page/UserLogin.jsx'))
+export const SignUp = lazy(() => import('../page/SignUp.jsx'))
+export const UserProfile = lazy(() => import('../page/UserProfile.jsx'))
+export const OrderList = lazy(() => import('../page/OrderList.jsx'))

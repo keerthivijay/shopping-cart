@@ -1,16 +1,17 @@
-import ProductDetails from '../page/ProductDetails.jsx'
-import CartDetails from '../page/CartDetails.jsx'
-import ProductList from '../page/ProductList.jsx'
-import Contact from '../page/Contact.jsx'
-import DeliveryDetails from '../page/DeliveryDetails.jsx'
-import PaymentDetails from '../page/PaymentDetails.jsx'
-import OrderSuccess from '../page/OrderSuccess.jsx'
-import OrderFailure from '../page/OrderFailure.jsx'
-import Home from '../page/Home.jsx'
-import OrderDetails from '../page/OrderDetails.jsx'
-import OrderList from '../page/OrderList.jsx'
-import UserLogin from '../page/UserLogin.jsx'
-import SignUp from '../page/SignUp.jsx'
+import {
+    ProductDetails,
+    CartDetails,
+    ProductList,
+    Contact,
+    DeliveryDetails,
+    PaymentDetails,
+    OrderSuccess,
+    OrderFailure,
+    Home,
+    OrderDetails,
+    UserLogin,
+    SignUp,
+} from './lazyPages.jsx'
 
 export const routesConfig = [
     {
