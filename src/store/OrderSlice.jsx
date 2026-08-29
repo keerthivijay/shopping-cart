@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import moment from 'moment';
 
 const orderSlice = createSlice({
     name: "order",
@@ -6,7 +7,7 @@ const orderSlice = createSlice({
         orderList: [],
         orderDetails: {
             id: Date.now(),
-            date : new Date().toLocaleDateString('en-GB'),
+            date : moment().format('MMMM Do YYYY, h:mm:ss a'),
             products: [],
             deliveryInfo: {},
             paymentOption: {},
