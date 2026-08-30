@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { fetchProductsData } from "../services/ThunkServices";
 
 const productSlice = createSlice({
     name: "product",
@@ -54,6 +55,17 @@ const productSlice = createSlice({
             state.cartProducts = [];
             state.cartCount = 0;
         }
+    },
+    extraReducers : (builder) => {
+        builder
+        .addCase(fetchProductsData.pending, (state) => {
+            state.status = 'pending';
+        })
+        .addCase(fetchProductsData.fulfilled, (state, action) => {
+            state.status = 'succeeded';
+            console.log('thunk response extra reducer');
+            state.productList = action.payload.products;
+        })
     }
 })
 
