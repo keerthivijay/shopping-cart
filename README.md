@@ -50,12 +50,13 @@ Start the server
 ├── project/
 │   ├── public/          # Static assets
 |   └──  src/            
-│       ├── assets           # Images and icons
+│       ├── assets       # Images and icons
 │       ├── components/  # Reusable UI elements (Navbar, Footer, CartItem)
 │       ├── config/      # Routes and breadcrubls Json
 │       ├── pages/       # Page components (Home, Cart, Product, Login)
+│       ├── services/    # Web services calls
 │       ├── store/       # Redux store and slices
-│       ├── test/       # Unit testing scripts
+│       ├── test/        # Unit testing scripts
 │       ├── utils/       # Validations and debounce methods
 │       └── App.js       # Main React app router
 └── README.md
