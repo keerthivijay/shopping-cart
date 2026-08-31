@@ -1,10 +1,10 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import apiClient from '../config/apiClient'
 
 export const fetchProductsData = createAsyncThunk(
   'products/fetchData',
   async () => {
-    const response = await fetch(`http://localhost:5173/data.json`);//https://dummyjson.com/products
-    console.log('thunk response');
-    return await response.json();
+    const response = await apiClient.get(`products`);
+    return response;
   }
 );
