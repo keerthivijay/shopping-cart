@@ -787,6 +787,10 @@ input[type="range"]::-webkit-slider-thumb {
   max-height: 50vh;
   overflow-y: scroll;
   z-index: 100;
+  ul{
+    margin: 0;
+    padding: 0;
+  }
 }
 
 .search-product {

@@ -1,4 +1,4 @@
-import { useEffect, useState, ref, useRef } from "react";
+import { useEffect, useState, ref, useRef, useTransition } from "react";
 import { Link, useNavigate } from "react-router";
 import { useSelector } from "react-redux";
 import { debounce } from '../utils/debounce';
@@ -8,9 +8,10 @@ function SearchBox() {
     const [result, setResult] = useState([]);
     const [searchText, setSearchText] = useState("");
     const [selectedIndex, setSelectedIndex] = useState(-1);
+    const [isPending, setTransistion] = useTransition();
     const searchBox = useRef(null);
-    const navigate = useNavigate();
     const containerRef = useRef();
+    const navigate = useNavigate();
 
     const products = useSelector((state) => state.product.productList);
 
@@ -20,12 +21,14 @@ function SearchBox() {
     }
 
     const debounceSearch = debounce((searchText) => {
-        const result = seachResult(searchText);
-        setResult(result);
+        seachResult(searchText);
     }, 300);
 
     const seachResult = (searchText) => {
-        return products.filter(product => product.title.toLowerCase().includes(searchText.toLowerCase()));
+        setTransistion(() => {
+            const result = products.filter(product => product.title.toLowerCase().includes(searchText.toLowerCase()));
+            setResult(result);
+        });
     }
 
     const clearSearch = () => {
@@ -71,19 +74,22 @@ function SearchBox() {
             <input type="text" name="search" ref={searchBox} id="search" className="search-input" autoComplete="off" placeholder="Search products" onKeyDown={handleKeyDown} onChange={searchProducts} />
             <img className="search-icon" src="../src/assets/magnifying-glass.png" />
             <i className="btn-search-clear" onClick={clearSearch}><img className="btn-search-clear" src="../src/assets/close.png" /></i>
-            <ul ref={containerRef} className={searchText == "" ? 'search-result' : 'search-result-active'} onClick={clearSearch}>
-                {result?.map((product, index) => (
-                    <Link to={`/product/${product.id}`}>
-                        <li className={index === selectedIndex ? `selected-index search-product` : `search-product`} key={index}>
-                            <img src={product.thumbnail} alt={product.title} />
-                            <span className="search-product-title">{product.title}</span>
-                        </li>
-                    </Link>
-                ))}
-                {result?.length === 0 && searchText !== "" && (
-                    <li className="search-product"><span > No products!</span></li>
-                )}
-            </ul>
+            <div className={searchText == "" ? 'search-result' : 'search-result-active'} >
+                {isPending && <p>Updating list items...</p>}
+                <ul ref={containerRef} onClick={clearSearch} className={{opacity: isPending ? 0.6 : 1}} >
+                    {result?.map((product, index) => (
+                        <Link to={`/product/${product.id}`}>
+                            <li className={index === selectedIndex ? `selected-index search-product` : `search-product`} key={index}>
+                                <img src={product.thumbnail} alt={product.title} />
+                                <span className="search-product-title">{product.title}</span>
+                            </li>
+                        </Link>
+                    ))}
+                    {result?.length === 0 && searchText !== "" && (
+                        <li className="search-product"><span > No products!</span></li>
+                    )}
+                </ul>
+            </div>
         </div>
     );
 }
