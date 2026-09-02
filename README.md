@@ -52,6 +52,7 @@ Start the server
 |   └──  src/            
 │       ├── assets       # Images and icons
 │       ├── components/  # Reusable UI elements (Navbar, Footer, CartItem)
+│       │   └──  ui/     # Common UI elements (Modal, Slider)
 │       ├── config/      # Routes and breadcrubls Json
 │       ├── pages/       # Page components (Home, Cart, Product, Login)
 │       ├── services/    # Web services calls

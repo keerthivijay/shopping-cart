@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import ProductsWidget from "../components/ProductsWidget";
-import { Link } from "react-router";
+import Slider from "../components/ui/Slider";
 
 function Home() {
 
@@ -11,9 +11,7 @@ function Home() {
             <p>Browse our products and add them to your cart.</p>
         </div> */}
         <Suspense fallback={<div>Loading products...</div>}>
-            <Link to={"/products"}>
-              <img src="./src/assets/banner.jpg" alt="banner image" width={"1200px"} height={"550px"} />
-            </Link>
+            <Slider/>
             <ProductsWidget />
         </Suspense>
     </>
