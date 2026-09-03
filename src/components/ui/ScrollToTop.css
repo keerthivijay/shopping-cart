@@ -1,0 +1,11 @@
+.scroll-to-top {
+  position:fixed;
+  z-index : 100;
+  bottom:30px;
+  right:30px;
+  cursor: pointer;
+  background: url('./src/assets/arrow.png');
+  background-repeat: no-repeat;
+  background-size: 40px 40px;
+  padding: 20px;
+}
