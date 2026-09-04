@@ -1,0 +1,9 @@
+.success-message {
+  color: var(--secondary);
+  background-color: var(--success);
+  padding: 20px;
+  border: 1px solid var(--success);
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+}

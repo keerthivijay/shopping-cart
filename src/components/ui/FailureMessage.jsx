@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import './FailureMessage.css'
 
 function FailureMessage({message,submitStatus=true}) {
 

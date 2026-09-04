@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import './SuccessMessage.css'
 
 function SuccessMessage({message, submitStatus=true}) {
 

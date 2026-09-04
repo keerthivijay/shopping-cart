@@ -1,0 +1,9 @@
+.failure-message {
+  color: var(--secondary);
+  background-color: var(--failure);
+  padding: 20px;
+  border: 1px solid var(--failure);
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+}
