@@ -1,15 +1,15 @@
 import { useLocation, Link } from "react-router";
-import data from '../config/breadCrumbs.json';
+import './BreadCrumbs.css';
 
-const BreadCrumbs = () => {
+const BreadCrumbs = ({breadCrumbsObj}) => {
 
     const route = useLocation().pathname.split('/').filter((x) => x)[0];
-    const breadCrumbs = data[route];
+    const breadCrumbs = breadCrumbsObj[route];
 
     return(
         <div className="breadcrumbs">
             {breadCrumbs?.map((value,index) => (
-                value.url!=''?<span key={index}><Link to={value.url} >{value.label}</Link><span className="bc-spit">{"/"}</span></span>
+                value.url!=''?<span key={index}><Link to={value.url} >{value.label}</Link><span className="breadcrumbs-spit">{"/"}</span></span>
                 :<span key={index}>{value.label}</span>
             ))}
         </div>

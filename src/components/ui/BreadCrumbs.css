@@ -1,0 +1,17 @@
+.breadcrumbs {
+  padding: 10px;
+}
+
+.breadcrumbs a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.breadcrumbs a:hover {
+  color: #4186cc;
+}
+
+.breadcrumbs-spit {
+  padding-left: 5px;
+  padding-right: 5px;
+}
