@@ -1,3 +1,5 @@
+import './StarRating.css'
+
 const StarRating = ({ rating }) => {
 
     let name = crypto.randomUUID();

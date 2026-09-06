@@ -1,0 +1,26 @@
+.ratings {
+  display: flex;
+}
+
+.rating {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.rating:not(:checked)>label::after {
+  content: '★ ';
+}
+
+.rating:not(:checked)>input {
+  position: absolute;
+  top: -9999px;
+}
+
+.rating:not(:checked)>label {
+  cursor: pointer;
+  color: #ccc;
+}
+
+.rating>input:checked~label {
+  color: #ffc700;
+}
