@@ -2,6 +2,7 @@ import { useEffect, useState, ref, useRef, useTransition } from "react";
 import { Link, useNavigate } from "react-router";
 import { useSelector } from "react-redux";
 import { debounce } from '../utils/debounce';
+import './SearchBox.css';
 
 function SearchBox() {
 
