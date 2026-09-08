@@ -1,0 +1,38 @@
+.theme-selection {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.change-theme {
+  display: none;
+}
+.change-theme-label {
+  display: inline-block;
+  width: 40px;
+  height: 18px;
+  background-color: #8e8d8f;
+  border-radius: 10px;
+  position: relative;
+}
+
+.change-theme-label::before {
+  content: "\2600";
+  background-color: #fff;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+}
+
+.change-theme:checked + .change-theme-label::before {
+  content: "\263E";
+  background-color: #000;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 24px;
+  transition: background-color 0.3s ease;
+}
