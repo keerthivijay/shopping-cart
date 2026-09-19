@@ -1,11 +1,10 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { shallowEqual, useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { loginUser, logoutUser } from "../store/UserSlice.jsx";
-import "../store/ProductSlice.jsx";
 import { validateLogin } from '../utils/formValidators.js';
-import FailureMessage from "../components/FailureMessage.jsx";
+import FailureMessage from "../components/ui/FailureMessage.jsx";
 
 function UserLogin() {
     const navigate = useNavigate();

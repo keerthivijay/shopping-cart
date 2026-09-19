@@ -1,7 +1,7 @@
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import SuccessMessage from '../components/SuccessMessage';
+import SuccessMessage from '../components/ui/SuccessMessage.jsx';
 import { createUser, loginUser } from '../store/UserSlice.jsx';
 import { validateSignUp } from '../utils/formValidators.js';
 

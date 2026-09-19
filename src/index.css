@@ -132,47 +132,6 @@ body {
   border: none;
   transform: scale(1.1);
 }
-/* Theme swich Starts*/
-.theme-selection {
-  display: flex;
-  flex-direction: row-reverse;
-}
-.change-theme {
-  display: none;
-}
-.change-theme-label {
-  display: inline-block;
-  width: 40px;
-  height: 18px;
-  background-color: #8e8d8f;
-  border-radius: 10px;
-  position: relative;
-}
-
-.change-theme-label::before {
-  content: "\2600";
-  background-color: #fff;
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  position: absolute;
-  top: 2px;
-  left: 2px;
-}
-
-.change-theme:checked + .change-theme-label::before {
-  content: "\263E";
-  background-color: #000;
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  position: absolute;
-  top: 2px;
-  left: 24px;
-  transition: background-color 0.3s ease;
-}
-
-/* Theme switch ends */
 
 .products-container {
   /* display: flex;
@@ -472,14 +431,7 @@ input[type="range"]::-webkit-slider-thumb {
   font-weight: bold;
   padding: 8px;
 }
-
-/* .product-details img {
-  width: 400px;
-  height: auto;
-  border: #e0e0e0 1px solid;
-  align-items: center;
-} */
-
+/* Product details */
 .product-pirmary-info {
   display: flex;
 }
@@ -877,33 +829,6 @@ fieldset {
 }
 
 /* Order list */
-
-/* .order-list-header,
-.order-item {
-  display: flex;
-  justify-content: space-between;
-  padding: 10px;
-}
-
-.order-list-header {
-  background-color: var(---background-header);
-  font-weight: bold;
-}
-
-.order-item {
-  border-bottom: 1px solid var(--border);
-}
-
-.order-item:hover {
-  background-color: var(---background-hover);
-}
-
-.no-item {
-  align-items: center;
-  align-content: center;
-  padding: 10px;
-  border: 1px solid var(--border);
-} */
 
 .rdt_table {
   
