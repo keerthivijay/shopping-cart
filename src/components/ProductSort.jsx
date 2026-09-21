@@ -1,3 +1,5 @@
+import './ProductSort.css';
+
 const ProductSort = ({ products, setFinalProducts }) => {
 
     const handleSort = (e) => {
